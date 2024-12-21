@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Sentimen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f7e7;
+            border-radius: 4px;
+        }
+        .result p {
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Analisis Sentimen Ulasan</h1>
+    <form action="/predict" method="POST">
+        <div class="form-group">
+            <label for="user_input">Masukkan Ulasan:</label>
+            <input type="text" id="user_input" name="user_input" placeholder="Masukkan ulasan produk..." required>
+        </div>
+        <input type="submit" value="Prediksi Sentimen">
+    </form>
+
+    {% if user_input %}
+    <div class="result">
+        <p>Ulasan: {{ user_input }}</p>
+        <p>Sentimen: {{ sentiment }}</p>
+        <p>Debug Sentimen: {{ sentiment }}</p>  <!-- Debugging Output -->
+    </div>
+{% endif %}
+
+
+</div>
+
+</body>
+</html>
